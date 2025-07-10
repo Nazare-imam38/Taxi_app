@@ -1,0 +1,39 @@
+{
+  "name": "mini-taxi-app",
+  "version": "1.0.0",
+  "description": "A complete GIS-based web application for taxi routing using Leaflet.js and OpenRouteService API",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "dev": "npx live-server --port=8000"
+  },
+  "keywords": [
+    "gis",
+    "mapping",
+    "leaflet",
+    "routing",
+    "taxi",
+    "navigation",
+    "openrouteservice",
+    "javascript",
+    "web-app"
+  ],
+  "author": "Mini Taxi App Developer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mini-taxi-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/mini-taxi-app/issues"
+  },
+  "homepage": "https://github.com/yourusername/mini-taxi-app#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

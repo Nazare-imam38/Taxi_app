@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Taxi App - GIS Navigation</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚕</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>🚕 Mini Taxi App</h1>
+            <p>Click on the map to set pickup and dropoff locations</p>
+        </div>
+    </header>
+
+    <!-- Main Map Container -->
+    <div id="map"></div>
+
+    <!-- Floating Control Panel -->
+    <div class="control-panel" id="controlPanel">
+        <div class="panel-header">
+            <h3>🚕 Mini Taxi</h3>
+            <span class="status" id="status">Ready to set pickup location</span>
+        </div>
+        
+        <!-- Taxi Type Selector -->
+        <div class="taxi-selector">
+            <label for="taxiType">Vehicle Type:</label>
+            <select id="taxiType" class="taxi-dropdown">
+                <option value="driving-car">🚗 Car</option>
+                <option value="cycling-regular">🚲 Bike</option>
+                <option value="driving-hgv">🚛 Delivery Van</option>
+            </select>
+        </div>
+
+        <!-- Location Information -->
+        <div class="location-info">
+            <div class="location-item">
+                <span class="label">📍 Pickup:</span>
+                <span class="coordinates" id="pickupCoords">Not set</span>
+            </div>
+            <div class="location-item">
+                <span class="label">🎯 Dropoff:</span>
+                <span class="coordinates" id="dropoffCoords">Not set</span>
+            </div>
+        </div>
+        
+        <!-- Route Information -->
+        <div class="route-info" id="routeInfo" style="display: none;">
+            <div class="route-item">
+                <span class="label">📏 Distance:</span>
+                <span class="value" id="distance">-</span>
+            </div>
+            <div class="route-item">
+                <span class="label">⏱️ ETA:</span>
+                <span class="value" id="eta">-</span>
+            </div>
+            <div class="route-item fare-item">
+                <span class="label">💰 Fare:</span>
+                <span class="value" id="fare">-</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Button -->
+    <button class="reset-btn" id="resetBtn" title="Reset route and markers">
+        <span>🔄</span>
+        <span class="btn-text">Reset</span>
+    </button>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Calculating route...</p>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <!-- Turf.js for distance calculations -->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
